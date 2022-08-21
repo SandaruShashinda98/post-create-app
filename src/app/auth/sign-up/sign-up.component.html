@@ -1,0 +1,65 @@
+<div class="wrapper">
+  <div class="card">
+    <mat-card>
+      <form [formGroup]="signUpForm"  (submit)="onSignUp()" action="submit" method="post" class="clearfix">
+        <mat-form-field>
+          <mat-label>User Name</mat-label>
+          <input
+            matInput
+            type="text"
+            required
+            minlength="3"
+            placeholder="Enter User Name"
+            formControlName="userName"
+          />
+          <mat-hint>Hint</mat-hint>
+          <mat-error *ngIf="signUpForm.controls.userName.hasError('required')">Please enter Your user Name</mat-error>
+          <mat-error *ngIf="signUpForm.controls.userName.hasError('minLength')">User Name should be more than 3 characters</mat-error>
+          <!-- add error for min length -->
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Password</mat-label>
+          <input
+          type="password"
+            matInput
+            required
+            placeholder="Enter Password"
+            formControlName="password"
+          />
+          <mat-hint>Hint</mat-hint>
+          <mat-error *ngIf="signUpForm.controls.password.hasError('required')">Please enter Your Password</mat-error>
+          <mat-error *ngIf="signUpForm.controls.password.hasError('minLength')">Password should be more than 3 characters</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Confirm Password</mat-label>
+          <input
+           type="password"
+            matInput
+            required
+            minlength="3"
+            placeholder="Conform User Password"
+            formControlName="confirmPassword"
+          />
+          <mat-hint>Hint</mat-hint>
+          <mat-error *ngIf="signUpForm.controls.confirmPassword.hasError('required')">Please enter Your Password Again</mat-error>
+          <mat-error *ngIf="signUpForm.controls.confirmPassword.errors?.match"> Password miss match</mat-error>
+          <!-- add error for min length -->
+        </mat-form-field>
+
+        <div class="btn">
+          <button
+          mat-raised-button
+          color="accent"
+          type="submit"
+          [disabled]="(signUpForm.invalid|| signUpForm.untouched)"
+          >
+            Sign Up
+          </button>
+        </div>
+      </form>
+    </mat-card>
+  </div>
+</div>
+
