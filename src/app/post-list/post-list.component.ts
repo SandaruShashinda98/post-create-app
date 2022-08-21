@@ -27,7 +27,6 @@ export class PostListComponent implements OnInit {
   }
 
   onDelete(post: any) {
-    console.log("aaa",post._id)
     this.postService.deletePost(post._id).subscribe((res)=>{
       if(res){
         this.openSnackBar("Post deleted successfully");

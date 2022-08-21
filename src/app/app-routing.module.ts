@@ -22,13 +22,3 @@ const routes: Routes = [
 })
 export class AppRoutingModule {}
 
-  // {
-  //   path: '',
-  //   redirectTo: '/app/login',
-  //   pathMatch: 'full',
-  // },
-  // {
-  //   path: 'app',
-  //   redirectTo: '/app/launchpad',
-  //   pathMatch: 'full',
-  // },

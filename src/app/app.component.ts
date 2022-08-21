@@ -15,6 +15,7 @@ export class AppComponent {
   constructor(private AuthService: AuthServiceService) {}
 
   ngOnInit() {
+    this.AuthService.autoAuthUser();
     this.userIsAuthenticated = this.AuthService.getIsAuth();
     console.log(this.userIsAuthenticated)
     this.authListenerSubs = this.AuthService
@@ -25,8 +26,7 @@ export class AppComponent {
       });
   }
 
-  onClickLogout(this) {
-    console.log("ss")
+  onClickLogout() {
     this.AuthService.logout();
   }
 
